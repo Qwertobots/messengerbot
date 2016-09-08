@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def handle_verification():
-    if request.args.get('hub.verify_token', '') == 'anything_to_verify'
+    if request.args.get('hub.verify_token', '') == VERIFY_TOKEN
         return request.args.get('hub.challenge', 200)
     else:
         return 'Error, wrong validation token'
@@ -49,7 +49,7 @@ def send_message(recipient_id, message_text):
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
-        "access_token": "EAACjGKRiZC4cBALBkDmCgPiej1gX9I3thEsUQq3Qz73ApePmhl8tZAXZBGtHGLeS7SYqcg9UjkGl5UHnvjx3LCk5ZBqdfZAnn5G9vQedIhQVYSZBBBSvs0chjivwlZC5YNqufCh0FxJXkjZBQJWPAYuKjaZBEhfzcOpoaI2BFQuEzXwZDZD"
+        "access_token": PAGE_ACCESS_TOKEN
     }
     headers = {
         "Content-Type": "application/json"
